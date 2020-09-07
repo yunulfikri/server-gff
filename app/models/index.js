@@ -26,6 +26,10 @@ db.sequelize = sequelize
 
 db.user = require("../models/user.model")(sequelize, Sequelize)
 db.role = require("../models/role.model")(sequelize, Sequelize)
+db.userdetails = require("../models/userdetails.model")(sequelize, Sequelize)
+
+db.user.hasOne(db.userdetails)
+db.userdetails.belongsTo(db.user)
 
 db.role.belongsToMany(db.user, {
     through: "user_roles",
