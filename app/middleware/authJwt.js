@@ -26,8 +26,8 @@ verifyToken = (req, res, next) => {
 isAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     if(!user){
-      return res.status(404).send({
-        message: "fuck off"
+      return res.status(401).send({
+        message: "Unauthorized"
       })
     }
     user.getRoles().then(roles => {
@@ -49,8 +49,8 @@ isAdmin = (req, res, next) => {
 isModerator = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     if(!user){
-      return res.status(404).send({
-        message: "fuck off"
+      return res.status(401).send({
+        message: "Unauthorized"
       })
     }
     user.getRoles().then(roles => {
@@ -71,8 +71,8 @@ isModerator = (req, res, next) => {
 isModeratorOrAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     if(!user){
-      return res.status(404).send({
-        message: "fuck off"
+      return res.status(401).send({
+        message: "Unauthorized"
       })
     }
     user.getRoles().then(roles => {
