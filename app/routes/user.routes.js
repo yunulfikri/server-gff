@@ -24,4 +24,5 @@ module.exports = function (app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   )
+  app.get("/users/all",[authJwt.verifyToken, authJwt.isAdmin], controller.getAllUser)
 }

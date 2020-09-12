@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const db = require("./app/models")
 const Role = db.role
 
-db.sequelize.sync({force: true}).then(() => {
-    console.log("drop and resync DB")
-    initial() //delete this for production boy
-})
+// db.sequelize.sync({force: true}).then(() => {
+//     console.log("drop and resync DB")
+//     initial() //delete this for production boy
+// })
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
