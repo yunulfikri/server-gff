@@ -26,3 +26,6 @@ exports.getAllUser = (req, res) => {
         res.status(500).send("error + " + e)
     })
 }
+exports.myProfileUpdate = (req, res)=>{
+    res.status(200).send(req.userId)
+}

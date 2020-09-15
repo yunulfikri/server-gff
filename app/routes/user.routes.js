@@ -25,4 +25,5 @@ module.exports = function (app) {
     controller.adminBoard
   )
   app.get("/users/all",[authJwt.verifyToken, authJwt.isAdmin], controller.getAllUser)
+  app.get("/users/update",[authJwt.verifyToken, authJwt.isAdmin], controller.myProfileUpdate)
 }
